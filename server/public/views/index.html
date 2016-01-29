@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directiveApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Directives</title>
+  <script src="vendors/angular.min.js"></script>
+  <script src="scripts/client.min.js"></script>
+</head>
+<body ng-controller="dirController" ng-keypress="rocket = true">
+  <div ng-pluralize count="count" when="{'-5': 'Negative five now', '-4': 'Negative four now.', '-3': 'Negative three now.', '-2': 'Negative two now.', '-1': 'Negative one now.', '0': 'Nothing yet.', '1': 'One now.', '2': 'Two now.', '3': 'Three now.', '4': 'Four now.', '5': 'Five now.', 'other': 'More than five, or less than negative five.'}"></div>
+  <button ng-click="addCount()">Increment</button> <button ng-dblclick="lowerCount()">Decrement (Double Click)</button>
+
+  <br><br>
+  <span ng-show="rocket"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Proton_Zvezda_crop.jpg" style="height: 250px;" ng-click="rocket = false"/></span>
+
+  <div ng-switch="rocket"><h2 ng-switch-when="true">Rocket here Houston.</h2><h2 ng-switch-when="false">No Rocket</h2>
+  </div>
+
+  <label>Open Rocket Summary <input type="checkbox" ng-model="open"></label><br>
+  <details id="details" ng-open="open" style="cursor:pointer;" ng-model="button">
+    <summary>Rocket Summary</summary>
+    <p>That's an advanced modern oxymoron. It was good, I like it and I believed it. Man you got a way with using words. That's like a lariat that does a snake whip on your back legs, I mean on the back of your legs - not that you have 4 legs - and pulls you this way, and thats what that line did to me and I believed every minute of it. Until I looked at the quadrangle that it produced with the verbs used in the sentence.</p>
+  </details>
+</body>
+</html>
